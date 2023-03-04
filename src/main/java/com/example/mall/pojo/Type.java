@@ -1,8 +1,11 @@
 package com.example.mall.pojo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import java.util.Date;
 import com.baomidou.mybatisplus.annotation.Version;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -14,7 +17,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author linyes
- * @since 2022-12-24
+ * @since 2023-02-26
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -35,19 +38,27 @@ public class Type implements Serializable {
     private String name;
 
     /**
-     * 描述
+     * 父级分类id
+
      */
-    private String description;
+    private Integer parentId;
 
     /**
-     * 外链地址
+     * 排序字段
      */
-    private String url;
+    private Integer sort;
 
     /**
-     * 上级分类ID
+     * 创建时间
      */
-    private Integer fatherId;
+    @TableField(fill = FieldFill.INSERT)
+    private Date createTime;
+
+    /**
+     * 更新时间
+     */
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private Date updateTime;
 
 
 }

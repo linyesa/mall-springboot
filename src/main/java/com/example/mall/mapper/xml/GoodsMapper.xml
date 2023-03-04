@@ -15,11 +15,13 @@
         <result column="tag" property="tag" />
         <result column="goods_sell_status" property="goodsSellStatus" />
         <result column="create_user" property="createUser" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        goods_id, goods_name, goods_intro, goods_category_id, goods_cover_img, goods_detail_content, original_price, selling_price, tag, goods_sell_status, create_user
+        goods_id, goods_name, goods_intro, goods_category_id, goods_cover_img, goods_detail_content, original_price, selling_price, tag, goods_sell_status, create_user, create_time, update_time
     </sql>
 
 </mapper>

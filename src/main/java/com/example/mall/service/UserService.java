@@ -2,6 +2,7 @@ package com.example.mall.service;
 
 import com.example.mall.pojo.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.mall.pojo.vo.RegisterVo;
 
 /**
  * <p>
@@ -9,8 +10,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author linyes
- * @since 2022-12-22
+ * @since 2023-02-26
  */
 public interface UserService extends IService<User> {
 
+    Boolean login(User user);
+
+    void register(RegisterVo registerVo);
 }

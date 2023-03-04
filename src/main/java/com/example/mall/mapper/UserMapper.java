@@ -2,6 +2,8 @@ package com.example.mall.mapper;
 
 import com.example.mall.pojo.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+import org.mybatis.spring.annotation.MapperScan;
 
 /**
  * <p>
@@ -9,8 +11,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author linyes
- * @since 2022-12-22
+ * @since 2023-02-26
  */
+@Mapper
 public interface UserMapper extends BaseMapper<User> {
 
 }

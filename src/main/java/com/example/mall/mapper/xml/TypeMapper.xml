@@ -6,14 +6,15 @@
     <resultMap id="BaseResultMap" type="com.example.mall.pojo.Type">
         <id column="type_id" property="typeId" />
         <result column="name" property="name" />
-        <result column="description" property="description" />
-        <result column="url" property="url" />
-        <result column="father_id" property="fatherId" />
+        <result column="parent_id" property="parentId" />
+        <result column="sort" property="sort" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        type_id, name, description, url, father_id
+        type_id, name, parent_id, sort, create_time, update_time
     </sql>
 
 </mapper>

@@ -17,7 +17,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author linyes
- * @since 2022-12-22
+ * @since 2023-02-26
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -64,6 +64,27 @@ public class User implements Serializable {
      */
     @TableField(fill = FieldFill.INSERT)
     private Date createTime;
+
+    /**
+     * 更新时间
+     */
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private Date updateTime;
+
+    /**
+     * 年龄
+     */
+    private String age;
+
+    /**
+     * 用户头像
+     */
+    private String avater;
+
+    /**
+     * 用户签名
+     */
+    private String sign;
 
 
 }
