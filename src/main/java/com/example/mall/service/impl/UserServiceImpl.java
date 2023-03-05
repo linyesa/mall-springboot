@@ -5,6 +5,7 @@ import com.example.mall.exceptionhandler.LysException;
 import com.example.mall.pojo.User;
 import com.example.mall.mapper.UserMapper;
 import com.example.mall.pojo.vo.RegisterVo;
+import com.example.mall.pojo.vo.UserInfo;
 import com.example.mall.service.UserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.mall.utils.MD5;
@@ -29,7 +30,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Autowired
     private RedisTemplate<String,String> redisTemplate;
     @Override
-    public Boolean login(User user) {
+    public UserInfo login(User user) {
         //获取登录手机号和密码
         String mobile = user.getMobile();
         String password = user.getPassword();
@@ -60,8 +61,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         if(mobileMember.getStatus()==0) {
             throw new LysException(20001,"用户被禁用，登录失败");
         }
-
-        return true;
+        UserInfo userInfo=new UserInfo();
+        BeanUtils.copyProperties(mobileMember,userInfo);
+        return userInfo;
     }
 
     @Override

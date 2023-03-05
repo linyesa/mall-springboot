@@ -32,10 +32,8 @@ public class UserController {
     private UserService userService;
     @PostMapping("login")
     public R login(@RequestBody User user){
-        Boolean loginFlag=userService.login(user);
-        if(loginFlag){
-            UserInfo userInfo=new UserInfo();
-            BeanUtils.copyProperties(user,userInfo);
+        UserInfo userInfo=userService.login(user);
+        if(userInfo!=null){
             return R.ok().put("userinfo",userInfo);
         }else {
             return R.error(20001,"登录失败");

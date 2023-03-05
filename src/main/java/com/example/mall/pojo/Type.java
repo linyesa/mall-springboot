@@ -29,8 +29,8 @@ public class Type implements Serializable {
     /**
      * 分类ID
      */
-    @TableId(value = "type_id", type = IdType.AUTO)
-    private Integer typeId;
+    @TableId(value = "type_id", type = IdType.ASSIGN_ID)
+    private Long typeId;
 
     /**
      * 分类名称

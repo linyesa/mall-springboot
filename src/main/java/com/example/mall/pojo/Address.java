@@ -29,8 +29,8 @@ public class Address implements Serializable {
     /**
      * 收货地址id
      */
-    @TableId(value = "address_id", type = IdType.AUTO)
-    private Integer addressId;
+    @TableId(value = "address_id", type = IdType.ASSIGN_ID)
+    private Long addressId;
 
     /**
      * 姓名
