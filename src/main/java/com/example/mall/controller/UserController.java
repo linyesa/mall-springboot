@@ -61,5 +61,10 @@ public class UserController {
     public R testAxios(){
         return R.ok("cheskdfhlakd");
     }
+    @GetMapping("getUserIdByMobile")
+    public R getUserIdByMobile(@RequestParam String mobile){
+        Long userId=userService.getUserIdByMobile(mobile);
+        return R.ok().put("userId",userId);
+    }
 }
 

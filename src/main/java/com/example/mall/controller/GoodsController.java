@@ -4,14 +4,11 @@ package com.example.mall.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.mall.mapper.GoodsMapper;
 import com.example.mall.pojo.Goods;
+import com.example.mall.pojo.vo.SearchVO;
 import com.example.mall.service.GoodsService;
 import com.example.mall.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -41,6 +38,22 @@ public class GoodsController {
     public R getDetailById(@PathVariable("id")Long id){
         Goods goods=goodsService.getById(id);
         return R.ok().put("goodsDetail",goods);
+    }
+    @PostMapping("searchGoods")
+    public R searchGoods(@RequestBody SearchVO searchVO){
+        List<Goods> goodsList=goodsService.searchGoods(searchVO);
+        return R.ok().put("goodsInfo",goodsList);
+    }
+    @PostMapping("saveGoods")
+    public R saveGoods(@RequestBody Goods goods){
+        goods.setGoodsSellStatus(1);
+        goodsMapper.insert(goods);
+        return R.ok();
+    }
+    @GetMapping("getOnGoodsInfoByUserId/{userId}/{status}")
+    public R getOnGoodsInfoByUserId(@PathVariable("userId") Long userId,@PathVariable("status") Integer status){
+        List<Goods> goodsList=goodsService.getGoodsInfoByUserId(userId,status);
+        return R.ok().put("goodsList",goodsList);
     }
 
 }

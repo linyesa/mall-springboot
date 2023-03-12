@@ -10,6 +10,7 @@ import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.apache.ibatis.annotations.Lang;
 
 /**
  * <p>
@@ -80,7 +81,7 @@ public class Goods implements Serializable {
     /**
      * 添加者主键id
      */
-    private Integer createUser;
+    private Long createUser;
 
     /**
      * 创建时间

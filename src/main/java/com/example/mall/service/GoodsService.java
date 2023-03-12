@@ -2,6 +2,9 @@ package com.example.mall.service;
 
 import com.example.mall.pojo.Goods;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.mall.pojo.vo.SearchVO;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface GoodsService extends IService<Goods> {
 
+    List<Goods> searchGoods(SearchVO searchVO);
+
+    List<Goods> getGoodsInfoByUserId(Long userId,Integer status);
 }

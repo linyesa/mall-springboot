@@ -1,8 +1,11 @@
 package com.example.mall.pojo;
 
-import com.baomidou.mybatisplus.annotation.*;
-
+import com.baomidou.mybatisplus.annotation.IdType;
 import java.util.Date;
+import com.baomidou.mybatisplus.annotation.Version;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -14,12 +17,11 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author linyes
- * @since 2023-02-26
+ * @since 2023-03-12
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("order")
 public class Order implements Serializable {
 
     private static final long serialVersionUID=1L;
@@ -27,7 +29,7 @@ public class Order implements Serializable {
     /**
      * 订单表主键id
      */
-    @TableId(value = "order_id", type = IdType.ASSIGN_ID)
+    @TableId(value = "order_id", type = IdType.AUTO)
     private Long orderId;
 
     /**

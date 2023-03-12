@@ -101,4 +101,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         user.setMobile(mobile);
           baseMapper.insert(user);
     }
+
+    @Override
+    public Long getUserIdByMobile(String mobile) {
+        QueryWrapper<User> queryWrapper=new QueryWrapper<>();
+        queryWrapper.eq("mobile",mobile);
+        User user=baseMapper.selectOne(queryWrapper);
+        return user.getUserId();
+    }
 }

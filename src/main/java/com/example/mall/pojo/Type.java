@@ -41,7 +41,7 @@ public class Type implements Serializable {
      * 父级分类id
 
      */
-    private Integer parentId;
+    private Long parentId;
 
     /**
      * 排序字段

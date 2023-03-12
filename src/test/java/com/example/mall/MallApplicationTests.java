@@ -44,7 +44,8 @@ class MallApplicationTests {
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
-        String projectPath = System.getProperty("user.dir");
+//        String projectPath = System.getProperty("user.dir");
+        String projectPath = System.getProperty("F:\\");
         gc.setOutputDir(projectPath + "/src/main/java");//设置代码生成路径
         gc.setFileOverride(true);//是否覆盖以前文件
         gc.setOpen(false);//是否打开生成目录

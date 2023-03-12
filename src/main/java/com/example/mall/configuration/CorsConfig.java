@@ -1,5 +1,9 @@
 package com.example.mall.configuration;
 
+import org.springframework.boot.web.embedded.tomcat.TomcatConnectorCustomizer;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory;
+import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
@@ -28,5 +32,17 @@ public class CorsConfig {
         configurationSource.registerCorsConfiguration("/**",configuration);
 //        返回一个接口
         return new CorsFilter(configurationSource);
+    }
+    /**
+     * 配置转义字符,解决当请求路径中特殊字符，高版本tomcat解析失败的问题
+     */
+    @Bean
+    public ServletWebServerFactory webServerFactory() {
+        TomcatServletWebServerFactory fa = new TomcatServletWebServerFactory();
+        fa.addConnectorCustomizers(connector -> {
+            connector.setProperty("relaxedQueryChars", "(),/:;<=>?@[\\]{}");
+            connector.setProperty("rejectIllegalHeader", "false");
+        });
+        return fa;
     }
 }

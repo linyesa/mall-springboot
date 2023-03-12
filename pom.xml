@@ -102,6 +102,13 @@
 <!--            <artifactId>jedis</artifactId>-->
 <!--        </dependency>-->
         <!-- Swagger API文档 结束 -->
+
+        <!--hutool-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.7.17</version>
+        </dependency>
     </dependencies>
 
 

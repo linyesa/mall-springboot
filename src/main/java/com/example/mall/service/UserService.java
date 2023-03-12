@@ -18,4 +18,6 @@ public interface UserService extends IService<User> {
    UserInfo login(User user);
 
     void register(RegisterVo registerVo);
+
+    Long getUserIdByMobile(String mobile);
 }
